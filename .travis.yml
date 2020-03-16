@@ -1,0 +1,29 @@
+language: node_js  
+
+node_js:
+  - "v12.9.1"
+
+branches:
+  only:
+  - dev
+
+cache:
+  directories:
+  - node_modules
+
+install:
+  yarn
+
+script:
+  yarn docs:build
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local-dir: ./docs/.vuepress/dist
+  target-branch: master
+  verbose: true
+  on:
+    branch: source
+
