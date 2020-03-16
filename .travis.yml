@@ -5,7 +5,7 @@ node_js:
 
 branches:
   only:
-  - dev
+  - master
 
 cache:
   directories:
@@ -22,8 +22,8 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   local-dir: ./docs/.vuepress/dist
-  target-branch: master
+  target-branch: gh-pages
   verbose: true
   on:
-    branch: source
+    branch: master
 
